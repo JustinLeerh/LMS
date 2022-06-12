@@ -23,3 +23,4 @@ const styles = StyleSheet.create({
 //bruhhh
 //LETS FUCKING GOOOOOOOOO
 //askjlfhkjasd
+//bruhhhh
