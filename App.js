@@ -17,7 +17,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Login" options={{headerShown: false}} component={LoginScreen} />
-        <Tab.Screen name="Event" component={EventScreen} />
+        <Tab.Screen name="Home" component={HomeScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -30,4 +30,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-//bruh

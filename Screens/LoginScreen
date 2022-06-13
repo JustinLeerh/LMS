@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, Value } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createStackNavigator()
-
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function EventsScreen() {
   const navigation = useNavigation()
@@ -14,7 +15,7 @@ function EventsScreen() {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Button 
       title="Login"
-      onPress={() => navigation.navigate("LoginDetails")}
+      onPress={() => navigation.navigate("Home1")}
       >
       </Button>
     </View>
@@ -22,9 +23,15 @@ function EventsScreen() {
 }
 
 function EventsSecondScreen() {
+  const navigation = useNavigation()
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Second Page</Text>
+      <Button
+      title="Logout"
+      onPress={() => navigation.navigate("Login")}
+      >
+      </Button>
     </View>
   )
 }
@@ -32,8 +39,8 @@ function EventsSecondScreen() {
 export default function EventsStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name ="Login" component={EventsScreen} />
-      <Stack.Screen name ="LoginDetails" component={EventsSecondScreen} />
+      <Stack.Screen name ="Login" options={{ headerShown: false }} component={EventsScreen} />
+      <Stack.Screen name ="Home1" options={{ headerShown: false }} component={EventsSecondScreen} />
     </Stack.Navigator>
   )
 }
