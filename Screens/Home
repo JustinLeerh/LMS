@@ -1,16 +1,19 @@
 import React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
 
-    function buttonPressed() {
+  function buttonPressed() {
     console.log("ButtonPressed")
   }
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button title="Login" onPress={buttonPressed}></Button>
+     <Text>Fuck</Text>
     </View>
   );
 }
