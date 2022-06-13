@@ -1,28 +1,72 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import React from 'react';
+import { Text, View, StyleSheet, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+function HomeScreen() {
+
+    function buttonPressed() {
+    console.log("ButtonPressed")
+  }
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Button title="Login" onPress={buttonPressed}></Button>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Login" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });
-//bruh
-//bruhh
-//bruhhh
-//LETS FUCKING GOOOOOOOOO
-//askjlfhkjasd
-//bruhhhh
-//workpls
-//pls
+
+/*export default function App() {
+
+  function buttonPressed() {
+    console.log("ButtonPressed")
+  }
+
+  return (
+    <View style={styles.container}>
+      <Button title="Login" onPress={buttonPressed}></Button>
+    </View>
+  );
+
+  
+
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});*/
+
+
