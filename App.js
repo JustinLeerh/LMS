@@ -30,3 +30,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+//bruh
