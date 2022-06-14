@@ -1,19 +1,65 @@
-import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+// HOME
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
+import QuizScreen from './HomeStack/Quiz';
+import NotesScreen from './HomeStack/Notes';
 
-export default function HomeScreen() {
-  const navigation = useNavigation();
+const Stack = createStackNavigator();
 
-  function buttonPressed() {
-    console.log("ButtonPressed")
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 60,
+    alignItems: 'center'
+  },
+  button: {
+    marginBottom: 30,
+    width: 260,
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
+  },
+  buttonText: {
+    textAlign: 'center',
+    padding: 20,
+    color: 'white'
   }
+});
+
+function HomeScreen() {
+  const navigation = useNavigation()
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-     <Text>Please Work</Text>
-    </View>
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => 
+          navigation.navigate("Quiz")
+        }
+      >
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>Quiz </Text>
+        </View>
+      </TouchableOpacity >
+      <TouchableOpacity
+        onPress={() => 
+          navigation.navigate("Notes")
+        }
+      >
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>Notes </Text>
+        </View>
+      </TouchableOpacity >
+    </View >
   );
+}
+
+export default function HomeStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name ="Home" component={HomeScreen} />
+      <Stack.Screen name ="Quiz" component={QuizScreen} />
+      <Stack.Screen name ="Notes" component={NotesScreen} />
+    </Stack.Navigator>
+  )
 }

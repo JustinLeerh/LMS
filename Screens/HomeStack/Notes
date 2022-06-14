@@ -1,0 +1,32 @@
+// NOTES
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 60,
+    alignItems: 'center'
+  },
+  button: {
+    marginBottom: 30,
+    width: 260,
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
+  },
+  buttonText: {
+    textAlign: 'center',
+    padding: 20,
+    color: 'white'
+  }
+});
+
+export default function NotesScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Notes</Text>
+    </View>
+  )
+}
