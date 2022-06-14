@@ -1,6 +1,6 @@
 // LOGIN
 import React from 'react';
-import { Text, View, StyleSheet, Button, Value, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Button, Value, TouchableOpacity, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native';
@@ -14,11 +14,26 @@ function EventsScreen() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="ID"
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="password"
+      />
       <Button 
       title="Login"
       onPress={() => navigation.navigate("Home1")}
       >
       </Button>
+      <Text style={styles.forget}>
+        Forgot your password?
+      </Text>
     </View>
   )
 }
@@ -45,3 +60,15 @@ export default function EventsStack() {
     </Stack.Navigator>
   )
 }
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  forget: {
+    color: black,
+    height: 20
+  }
+});
