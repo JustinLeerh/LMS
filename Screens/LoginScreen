@@ -12,28 +12,35 @@ const Tab = createBottomTabNavigator();
 
 function EventsScreen() {
   const navigation = useNavigation()
-  const [id, setName, pass, setPass] = useState("");
+  const [id, inpName] = useState("");
+  const [pass, inpPass] = useState("");
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <TextInput
         style={styles.input}
-        onChangeText={(value) => setName(value)}
+        onChangeText={(value) => inpName(value)}
         value={id}
-        placeholder="ID"
+        placeholder="User ID"
+        placeholderTextColor="dimgray" 
       />
       <TextInput
         style={styles.input}
-        onChangeText={(value) => setPass(value)}
+        onChangeText={(value) => inpPass(value)}
         value={pass}
         secureTextEntry={true}
         placeholder="Password"
+        placeholderTextColor="dimgray" 
       />
-      <Button 
-      title="Login"
-      onPress={() => navigation.navigate("Home1")}
+      <TouchableOpacity
+        onPress={() => 
+          navigation.navigate("Home1")
+        }
       >
-      </Button>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>LOGIN </Text>
+        </View>
+      </TouchableOpacity >
       <Text style={styles.forget}>
         Forgot your password?
       </Text>
@@ -49,6 +56,7 @@ function EventsSecondScreen() {
       <Button
       title="Logout"
       onPress={() => navigation.navigate("Login")}
+      color="red"
       >
       </Button>
     </View>
@@ -63,15 +71,28 @@ export default function EventsStack() {
     </Stack.Navigator>
   )
 }
+
 const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    width: 300,
   },
   forget: {
     color: "black",
     height: 20
+  },
+  button: {
+    marginBottom: 10,
+    width: 80,
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
+  },
+  buttonText: {
+    textAlign: 'center',
+    padding: 10,
+    color: 'white'
   }
 });
